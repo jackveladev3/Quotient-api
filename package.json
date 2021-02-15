@@ -1,0 +1,54 @@
+{
+  "name": "quotehard",
+  "version": "1.0.0",
+  "description": "api on quotehard",
+  "main": "app.js",
+  "scripts": {
+    "mongo:start": "docker run --name realworld-mongo -p 27017:27017 mongo & sleep 5",
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js",
+    "test": "newman run ./tests/api-tests.postman.json -e ./tests/env-api-tests.postman.json",
+    "stop": "lsof -ti :3000 | xargs kill",
+    "mongo:stop": "docker stop realworld-mongo && docker rm realworld-mongo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gothinkster/productionready-node-api.git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@azure/storage-blob": "^12.3.0",
+    "@sendgrid/mail": "^7.3.0",
+    "body-parser": "1.19.0",
+    "card-validator": "^8.1.0",
+    "chalk": "^4.1.0",
+    "cors": "2.8.5",
+    "dotenv": "^8.2.0",
+    "ejs": "3.1.5",
+    "errorhandler": "1.5.1",
+    "express": "4.17.1",
+    "express-jwt": "6.0.0",
+    "express-session": "1.17.1",
+    "into-stream": "^6.0.0",
+    "jsonwebtoken": "8.5.1",
+    "lodash": "^4.17.20",
+    "method-override": "3.0.0",
+    "methods": "1.1.2",
+    "mongoose": "^5.10.7",
+    "mongoose-unique-validator": "2.0.3",
+    "morgan": "1.10.0",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.17",
+    "passport": "0.4.1",
+    "passport-local": "1.0.0",
+    "request": "2.69.0",
+    "slug": "3.3.5",
+    "stripe": "^8.129.0",
+    "underscore": "1.11.0",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "newman": "^5.2.0",
+    "nodemon": "^2.0.4"
+  }
+}
